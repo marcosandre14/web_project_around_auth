@@ -1,3 +1,4 @@
+// src/components/Header/Header.jsx
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../images/logo.svg";
@@ -20,10 +21,8 @@ function Header({ email, onSignOut }) {
   };
 
   return (
-    <header
-      className={`header page__section ${isMenuOpen && isLoggedIn ? "header_menu-opened" : ""}`}
-    >
-      {/* Menu suspenso/gaveta no mobile para o usuário logado */}
+    <header className='header page__section'>
+      {/*  Gaveta de e-mail e Sair */}
       {isLoggedIn && (
         <div
           className={`header__user-menu ${isMenuOpen ? "header__user-menu_opened" : ""}`}
@@ -38,6 +37,7 @@ function Header({ email, onSignOut }) {
         </div>
       )}
 
+      {/* Barra Principal (Logo + Link ou Botão Hambúrguer/Fechar) */}
       <div className='header__main-container'>
         <img
           src={logo}
@@ -60,7 +60,7 @@ function Header({ email, onSignOut }) {
 
           {isLoggedIn && (
             <>
-              {/* Informações completas visíveis apenas no Desktop */}
+              {/* Informações de usuário visíveis apenas no Desktop */}
               <div className='header__user-info header__user-info_desktop'>
                 <span className='header__email'>{email}</span>
                 <button
@@ -71,7 +71,7 @@ function Header({ email, onSignOut }) {
                 </button>
               </div>
 
-              {/* Botão Hambúrguer / Fechar (Mobile) */}
+              {/* Botão Hambúrguer / Fechar no Mobile */}
               <button
                 type='button'
                 className={`header__hamburger ${isMenuOpen ? "header__hamburger_type_close" : ""}`}

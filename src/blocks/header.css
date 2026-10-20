@@ -1,0 +1,142 @@
+.header {
+  min-height: 120px;
+  font-family: "Inter", Arial, sans-serif;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.header__main-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header__logo {
+  width: 173px;
+  height: 33px;
+  object-fit: contain;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+}
+
+.header__user-info {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header__email {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.header__link {
+  color: #a9a9a9;
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.header__link:hover {
+  opacity: 0.6;
+}
+
+.header__button {
+  background: transparent;
+  border: none;
+  color: #a9a9a9;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.3s ease;
+}
+
+.header__button:hover {
+  opacity: 0.6;
+}
+
+/* Menu Gaveta Mobile (Invisível por padrão no desktop) */
+.header__user-menu {
+  display: none;
+}
+
+.header__hamburger {
+  display: none;
+}
+
+/* Responsividade Mobile (<= 650px) */
+@media screen and (max-width: 650px) {
+  .header {
+    min-height: 56px;
+    padding: 0;
+  }
+
+  .header_menu-opened {
+    flex-direction: column-reverse;
+  }
+
+  .header__main-container {
+    padding: 20px 30px;
+    box-sizing: border-box;
+  }
+
+  .header__logo {
+    width: 126px;
+    height: 24px;
+  }
+
+  .header__user-info_desktop {
+    display: none; /* Esconde no header do mobile */
+  }
+
+  /* Botão Hambúrguer */
+  .header__hamburger {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: transparent url(".././images/hamburger.svg") center no-repeat;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+  }
+
+  .header__hamburger_type_close {
+    background-image: url(".././images/close.svg");
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Gaveta que abre no topo com e-mail e botão sair */
+  .header__user-menu_opened {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 40px 0 40px;
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+    width: 100%;
+  }
+
+  .header__user-menu .header__email {
+    font-size: 18px;
+  }
+
+  .header__user-menu .header__button {
+    font-size: 18px;
+  }
+
+  .header__link {
+    font-size: 14px;
+  }
+}
